@@ -41,20 +41,21 @@ section.gallery {
     align-items: center;
 }
 .images {
-    border: 1px solid red;
     width: 90%;
     text-align: center;
 }
 .animate {opacity: 0;}
 .fade-left {
-    animation: fadeLeft 500ms ease-in-out forwards;
+    animation: fadeLeft 1000ms ease-in-out forwards;
 }
 .fade-right {
-    animation: fadeRight 500ms ease-in-out forwards;
+    animation: fadeRight 1000ms ease-in-out forwards;
 }
-
-.zoom-in {
-    animation: zoomIn 700ms ease-in-out forwards;
+.fade-down {
+    animation: fadeDown 1000ms ease-in-out forwards;
+}
+.fade-up {
+    animation: fadeUp 1000ms ease-in-out forwards;
 }
 
 .image {
@@ -140,6 +141,15 @@ section.gallery {
     z-index: 2;
     font-size: 3rem;
     margin-left: 3.8rem;
+}
+.like-dislike-more {
+    font-size: 3rem; 
+    display: flex;
+    justify-content: center;
+}
+.like-dislike-more i {
+    background: white;
+    margin-left: 0.5rem;
 }
 .like-dislike i {
     background: white;
