@@ -13,13 +13,14 @@ body {
 }
 
 .wrapper {
-    background-color: #4955be;
+    z-index: 2;
+    background-color: #4978bed8;
     padding: 2em;
-    margin-top: 5em;
+    margin-top: 3em;
+    margin-left: 1.5rem;
     border-radius: 40px;
-    width: 20%;
-    height: 30%;
-    
+    width: 20rem;
+    height: auto;
 }
 
 .image {
@@ -44,6 +45,18 @@ img {
     margin-bottom: 0;
     font-size: 1.2rem;
     color: rgb(156, 255, 204);
+}
+
+.see-more{
+    margin-right: 5.5rem;
+    margin-top: 4.7rem;
+    font-weight: 800;
+    color:rgb(156, 207, 255);
+    position: absolute;
+    z-index: 3;
+}
+.see-more:hover {
+    animation: shake 0.4s ease-out;
 }
 
 .cursor{
@@ -75,19 +88,117 @@ img {
 }
 
 .like-dislike {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: absolute;
+    z-index: 2;
+    font-size: 3rem;
+    margin-left: 3.8rem;
+}
+.like-dislike i {
+    background: white;
 }
 
+.x {
+    padding: 1.2rem 1.5rem;
+    border-radius: 50%;
+    margin-right: 0rem;
+    animation: fadeUp 1000ms ease-in-out forwards;
+}
+
+.heart {
+    padding: 1.2rem 1.5rem;
+    border-radius: 50%;
+    animation: fadeUp 1000ms ease-in-out forwards;
+    
+}
+
+
 .social {
-    margin-left: 1rem;
+    margin-left: 1.5rem;
 
 }
 .social i {
     font-size: 3rem;
     margin-bottom: 3rem;
+    background: white;
+    padding: 1rem 1rem;
+    border-radius: 50%;
 }
 .fa-instagram {
+    z-index: 1;
     color: #e31fdc;
+    animation: fadeRight 1000ms ease-in-out forwards;
+}
+
+.fa-facebook {
+    z-index: 1;
+    animation: fadeRight 1000ms ease-in-out forwards;
+}
+.fa-linkedin{
+    z-index: 1;
+    color: #0183ce;
+    animation: fadeRight 1000ms ease-in-out forwards;
+}
+
+
+@keyframes zoomIn {
+    0% {
+        opacity: 1;
+        transform: scale(0.3)
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2)
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(1)
+    }
+    150% {
+        opacity: 1;
+        transform: scale(1.8)
+    }
+}
+
+@keyframes fadeRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-120px)
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+@keyframes fadeUp {
+     0% {
+        opacity: 0;
+        transform: translateY(150px)
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: skewX(-40deg);
+    }
+
+    25% {
+        transform: skewX(40deg);
+    }
+
+    50% {
+        transform: skewX(-40deg);
+    }
+
+    75% {
+        transform: skewX(40deg);
+    }
+
+    100% {
+        transform: skewX(-40deg);
+    }
 }
