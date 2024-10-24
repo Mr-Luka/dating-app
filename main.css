@@ -138,11 +138,25 @@ section.gallery {
 }
 
 .like-dislike {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3rem;
+    margin-left: 2rem;
+}
+.x-button {
     position: absolute;
     z-index: 2;
-    font-size: 3rem;
-    margin-left: 3.8rem;
+    top: 49.5rem;
 }
+.like-button {
+    position: absolute;
+    z-index: 2;
+    top: 49.5rem;
+    margin-left: 10rem;
+}
+
 .like-dislike-more {
     font-size: 3rem; 
     display: flex;
