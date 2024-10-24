@@ -30,7 +30,7 @@ body {
     z-index: 2;
     background-color: #8a8a8a93;
     padding: 2em;
-    margin-top: 3em;
+    margin-top: 3.5em;
     margin-left: 1.5rem;
     border-radius: 40px;
     width: 70%;
@@ -98,15 +98,18 @@ section.gallery {
 
 .see-more{
     margin-right: 5.5rem;
-    margin-top: 7.7rem;
+    top: 3rem;
     font-weight: 800;
-    color:rgb(243, 255, 156);
+    color:rgb(0, 0, 0);
     position: absolute;
     z-index: 3;
     font-size: 1.2rem;
 }
 .see-more:hover {
     animation: shake 0.4s ease-out;
+}
+.back {
+    top: 0.5rem
 }
 
 .cursor{
@@ -138,25 +141,11 @@ section.gallery {
 }
 
 .like-dislike {
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: absolute;
+    z-index: 2;
     font-size: 3rem;
-    margin-left: 2rem;
+    margin-left: 3.8rem;
 }
-.x-button {
-    position: absolute;
-    z-index: 2;
-    top: 49.5rem;
-}
-.like-button {
-    position: absolute;
-    z-index: 2;
-    top: 49.5rem;
-    margin-left: 10rem;
-}
-
 .like-dislike-more {
     font-size: 3rem; 
     display: flex;
