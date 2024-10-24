@@ -14,13 +14,16 @@ body {
 
 .wrapper {
     z-index: 2;
-    background-color: #da67f193;
+    background-color: #43b4cd93;
     padding: 2em;
     margin-top: 6em;
     margin-left: 1.5rem;
     border-radius: 40px;
     width: 20rem;
     height: auto;
+}
+.active {
+    animation: dislike 1700ms ease-in-out forwards;
 }
 .hidden {
     display: none;
@@ -71,12 +74,23 @@ section.gallery {
     margin-bottom: 1rem;
 }
 
+.images img {
+    width: 24%;
+    height: 25%;
+    border-radius: 20px;
+}
+
+.images img:hover{
+    transform: scale(1.5);
+}
+
 .title h1 {
     margin-bottom: 0;
 }
 .title-more h1 {
     text-align: center;
     animation: fadeDown 1000ms ease-in-out forwards;
+    margin-top: 4rem;
 }
 
 .location p {
@@ -94,6 +108,8 @@ section.gallery {
 
 .description-more p{
     font-size: 1.3rem;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .see-more{
@@ -109,7 +125,8 @@ section.gallery {
     animation: shake 0.4s ease-out;
 }
 .back {
-    top: 0.5rem
+    top: 0.5rem;
+    z-index: 1;
 }
 
 .cursor{
@@ -261,6 +278,21 @@ section.gallery {
     100% {
         opacity: 1;
         transform: translateY(0)
+    }
+}
+
+@keyframes dislike {
+    0% {
+        opacity: 1;
+        transform: translateX(50px) rotateY(50deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(-150px) rotateX(30deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-500px) rotateX(150deg)
     }
 }
 

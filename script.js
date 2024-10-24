@@ -1,8 +1,9 @@
+
 const profile = document.querySelector('.wrapper');
 const seeMore = document.querySelector('.see-more');
 const back = document.querySelector('.back')
 const profileInfo = document.querySelector('.wrapper-more')
-const x = document.querySelector('.x');
+const xInfo = document.querySelector('.x');
 const heart = document.querySelector('.heart');
 
 let currentPerson;
@@ -74,7 +75,7 @@ function handleSeeMore() {
         </div>
     </section>
         
-        <div class="title-more">
+        <div class="title-more title-info">
             <h1>${currentPerson.name.first} - ${currentPerson.dob.age} years old</h1>
         </div>
         <div class="location-more cursor typewriter-animation">
@@ -90,12 +91,12 @@ function handleSeeMore() {
                 Lover of sunsets, dog walks and spontaneous adventures. Let's create our own love story.
             </p>
         <div class="like-dislike-more">
-            <i class="fa-solid fa-x x" style="color: #d60000;"></i>
+            <i class="fa-solid fa-x x x-info" style="color: #d60000;"></i>
             <i class="fa-solid fa-heart heart" style="color: #63E6BE;"></i>
         </div>
         </div>
     </div>
-    `
+    `;
 }
 
 function handleBack() {
@@ -103,11 +104,17 @@ function handleBack() {
     seeMore.classList.remove('hidden');
     profileInfo.classList.add('hidden');
     back.classList.add('hidden');
+}
 
+function xGoBack(){
+    handleBack();
+    getPeopleApi();
 }
 
 seeMore.addEventListener('click', handleSeeMore);
-
+// xInfo.addEventListener('click', ()=> {
+//     xGoBack();
+// })
 back.addEventListener('click', handleBack);
 // heart.addEventListener('click', likedButton);
 getPeopleApi ()
