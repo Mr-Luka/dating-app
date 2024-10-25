@@ -2,7 +2,8 @@
 const profile = document.querySelector('.wrapper');
 const seeMore = document.querySelector('.see-more');
 const back = document.querySelector('.back')
-const profileInfo = document.querySelector('.wrapper-more')
+const profileInfo = document.querySelector('.wrapper-more');
+const likeDislike = document.querySelector('.like-dislike');
 const xInfo = document.querySelector('.x');
 const heart = document.querySelector('.heart');
 
@@ -16,7 +17,7 @@ async function getPeopleApi () {
 }
 
 function dislikeButton (person) {
-    // const personInfo = person.results[0];
+
     if (person.gender === 'female') {
         profile.style.backgroundColor = '#da67f193';
     } else {
@@ -39,14 +40,20 @@ function dislikeButton (person) {
                 Searching for my partner-in-crime to explore the city, try new foods and cuddle up with on rainy days.
             </p>
         </div>
-        <div class="like-dislike">
-            <i class="fa-solid fa-x x" style="color: #d60000;"></i>
-            <i class="fa-solid fa-heart heart" style="color: #63E6BE;"></i>
-        </div>`;
+        `;
 
         const x = document.querySelector('.x');
-        x.addEventListener('click', getPeopleApi);
+        x.addEventListener('click', dislike);
 
+}
+
+function dislike (){
+    profile.classList.add('active');
+    setTimeout(() => {
+        getPeopleApi();
+        profile.classList.remove('active');
+        handleBack();
+    }, 1700);
 }
 
 
@@ -56,6 +63,7 @@ function handleSeeMore() {
 
     profile.classList.add('hidden');
     seeMore.classList.add('hidden');
+    likeDislike.classList.add('hidden');
     profileInfo.classList.remove('hidden');
     back.classList.remove('hidden');
 
@@ -102,6 +110,7 @@ function handleSeeMore() {
 function handleBack() {
     profile.classList.remove('hidden');
     seeMore.classList.remove('hidden');
+    likeDislike.classList.remove('hidden');
     profileInfo.classList.add('hidden');
     back.classList.add('hidden');
 }
@@ -112,9 +121,7 @@ function xGoBack(){
 }
 
 seeMore.addEventListener('click', handleSeeMore);
-// xInfo.addEventListener('click', ()=> {
-//     xGoBack();
-// })
+xInfo.addEventListener('click', dislike)
 back.addEventListener('click', handleBack);
 // heart.addEventListener('click', likedButton);
 getPeopleApi ()

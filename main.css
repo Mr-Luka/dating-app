@@ -161,7 +161,7 @@ section.gallery {
     position: absolute;
     z-index: 2;
     font-size: 3rem;
-    margin-left: 3.8rem;
+    margin: 52rem 5rem 0 0;
 }
 .like-dislike-more {
     font-size: 3rem; 
