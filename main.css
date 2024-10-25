@@ -14,13 +14,18 @@ body {
 
 .wrapper {
     z-index: 2;
-    background-color: #43b4cd93;
+    background-color: #dddddd93;
     padding: 2em;
     margin-top: 6em;
     margin-left: 1.5rem;
     border-radius: 40px;
     width: 20rem;
     height: auto;
+    outline-width: 1px;
+    outline-offset: 0;
+    outline-color: rgba(0, 130, 206, 0.75);
+    outline-style: solid;
+    animation: animateOutline 4s ease infinite;
 }
 .active {
     animation: dislike 1700ms ease-in-out forwards;
@@ -32,7 +37,7 @@ body {
 
 .wrapper-more {
     z-index: 2;
-    background-color: #8a8a8a93;
+    background-color: #e1a1ec9e;
     padding: 2em;
     margin-top: 3.5em;
     margin-left: 1.5rem;
@@ -49,6 +54,7 @@ section.gallery {
     text-align: center;
 }
 .animate {opacity: 0;}
+
 .fade-left {
     animation: fadeLeft 1000ms ease-in-out forwards;
 }
@@ -121,6 +127,7 @@ section.gallery {
     position: absolute;
     z-index: 3;
     font-size: 1.2rem;
+    cursor: pointer;
 }
 .see-more:hover {
     animation: shake 0.4s ease-out;
@@ -163,11 +170,13 @@ section.gallery {
     z-index: 2;
     font-size: 3rem;
     margin: 52rem 5rem 0 0;
+    cursor: pointer;
 }
 .like-dislike-more {
     font-size: 3rem; 
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 .like-dislike-more i {
     background: white;
@@ -193,6 +202,7 @@ section.gallery {
 
 .social {
     margin-left: 1.5rem;
+    cursor: pointer;
 
 }
 .social i {
@@ -319,6 +329,31 @@ section.gallery {
     100% {
         transform: skewX(-40deg);
     }
+}
+
+@keyframes animateOutline {
+  0% {
+    outline-width: 1px;
+    outline-offset: 0;
+    outline-color: rgba(0, 130, 206, 0);
+  }
+
+  10% {
+    outline-color: rgba(141, 206, 0, 0.75);
+  }
+
+  /* The animation finishes at 50% */
+  50% {
+    outline-width: 7px;
+    outline-offset: 12px;
+    outline-color: rgba(0, 130, 206, 0);
+  }
+
+  100% {
+    outline-width: 7px;
+    outline-offset: 10px;
+    outline-color: rgba(102, 102, 102, 0);
+  }
 }
 
 

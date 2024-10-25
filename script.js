@@ -19,9 +19,9 @@ async function getPeopleApi () {
 function dislikeButton (person) {
 
     if (person.gender === 'female') {
-        profile.style.backgroundColor = '#da67f193';
+        profile.style.backgroundColor = '#e1a1ec9e';
     } else {
-        profile.style.backgroundColor = '#43b4cd93';
+        profile.style.backgroundColor = '#75afb7bd';
     }
 
     profile.innerHTML = `
@@ -70,13 +70,13 @@ function handleSeeMore() {
     if (currentPerson.gender === 'female') {
         profileInfo.style.backgroundColor = '#da67f193';
     } else {
-        profileInfo.style.backgroundColor = '#43b4cd93';
+        profileInfo.style.backgroundColor = '#cce3fe93';
     }
 
     profileInfo.innerHTML = `
     <section class="gallery">
         <div class="images stagger" data-delay="0.5s">
-            <img src="${currentPerson.picture.large}"/>
+            <img "src="${currentPerson.picture.large}"/>
             <img src="${currentPerson.picture.large}"/>
             <img src="${currentPerson.picture.large}"/>
             <img src="${currentPerson.picture.large}"/>
