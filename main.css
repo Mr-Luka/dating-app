@@ -68,6 +68,8 @@ section.gallery {
     animation: fadeUp 1000ms ease-in-out forwards;
 }
 
+
+
 .image {
     display: flex;
     justify-content: center;

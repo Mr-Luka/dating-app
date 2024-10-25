@@ -76,10 +76,10 @@ function handleSeeMore() {
     profileInfo.innerHTML = `
     <section class="gallery">
         <div class="images stagger" data-delay="0.5s">
-            <img "src="${currentPerson.picture.large}"/>
-            <img src="${currentPerson.picture.large}"/>
-            <img src="${currentPerson.picture.large}"/>
-            <img src="${currentPerson.picture.large}"/>
+            <img  class="fade-right" src="${currentPerson.picture.large}"/>
+            <img  class="fade-up" src="${currentPerson.picture.large}"/>
+            <img  class="fade-down"  src="${currentPerson.picture.large}"/>
+            <img  class="fade-left" src="${currentPerson.picture.large}"/>
         </div>
     </section>
         
