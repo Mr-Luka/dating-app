@@ -1,7 +1,7 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    background-image: url('./img/pexels-evie-shaffer-1259279-2395249\ \(1\).jpg');
+    background-image: url('./img/pexels-pixabay-2145.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -37,7 +37,7 @@ body {
 
 .wrapper-more {
     z-index: 2;
-    background-color: #e1a1ec9e;
+    background-color: #e4eca1a9;
     padding: 2em;
     margin-top: 3.5em;
     margin-left: 1.5rem;

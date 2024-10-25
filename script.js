@@ -19,7 +19,7 @@ async function getPeopleApi () {
 function dislikeButton (person) {
 
     if (person.gender === 'female') {
-        profile.style.backgroundColor = '#e1a1ec9e';
+        profile.style.backgroundColor = '#e4eca1a9';
     } else {
         profile.style.backgroundColor = '#75afb7bd';
     }
