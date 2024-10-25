@@ -25,6 +25,7 @@ body {
 .active {
     animation: dislike 1700ms ease-in-out forwards;
 }
+
 .hidden {
     display: none;
 }
@@ -201,11 +202,13 @@ section.gallery {
     padding: 1rem 1rem;
     border-radius: 50%;
 }
+
 .fa-instagram {
     z-index: 1;
     color: #e31fdc;
     animation: fadeRight 1000ms ease-in-out forwards;
 }
+
 
 .fa-facebook {
     z-index: 1;
