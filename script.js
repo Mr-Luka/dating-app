@@ -4,7 +4,7 @@ const seeMore = document.querySelector('.see-more');
 const back = document.querySelector('.back')
 const profileInfo = document.querySelector('.wrapper-more');
 const likeDislike = document.querySelector('.like-dislike');
-const xInfo = document.querySelector('.x');
+const x = document.querySelector('#mainDislike');
 const heart = document.querySelector('.heart');
 
 let currentPerson;
@@ -16,10 +16,12 @@ async function getPeopleApi () {
     dislikeButton(currentPerson);
 }
 
+
+
 function dislikeButton (person) {
 
     if (person.gender === 'female') {
-        profile.style.backgroundColor = '#e4eca1a9';
+        profile.style.backgroundColor = '#e4eca1a9 ';
     } else {
         profile.style.backgroundColor = '#75afb7bd';
     }
@@ -41,10 +43,6 @@ function dislikeButton (person) {
             </p>
         </div>
         `;
-
-        const x = document.querySelector('.x');
-        x.addEventListener('click', dislike);
-
 }
 
 function dislike (){
@@ -54,6 +52,11 @@ function dislike (){
         profile.classList.remove('active');
         handleBack();
     }, 1700);
+}
+
+function dislikeMore () {
+    getPeopleApi();
+    handleBack();
 }
 
 
@@ -99,12 +102,13 @@ function handleSeeMore() {
                 Lover of sunsets, dog walks and spontaneous adventures. Let's create our own love story.
             </p>
         <div class="like-dislike-more">
-            <i class="fa-solid fa-x x x-info" style="color: #d60000;"></i>
-            <i class="fa-solid fa-heart heart" style="color: #63E6BE;"></i>
+            <i id="dislike-more" class="fa-solid fa-x x x-info" style="color: #d60000;"></i>
+            <i id="like-more" class="fa-solid fa-heart heart" style="color: #63E6BE;"></i>
         </div>
         </div>
     </div>
     `;
+    document.querySelector('#dislike-more').addEventListener('click', dislikeMore);
 }
 
 function handleBack() {
@@ -121,7 +125,7 @@ function xGoBack(){
 }
 
 seeMore.addEventListener('click', handleSeeMore);
-xInfo.addEventListener('click', dislike)
+x.addEventListener('click', dislike)
 back.addEventListener('click', handleBack);
 // heart.addEventListener('click', likedButton);
 getPeopleApi ()
