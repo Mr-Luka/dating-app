@@ -1,6 +1,5 @@
 //    FIRST CONTAINER
 const register = document.querySelector('.container');
-const preferance = document.querySelector('.container2');
 const form = document.querySelector('.form');
 const inputName = document.querySelector('#name');
 const inputEmail = document.querySelector('#email');
@@ -34,6 +33,9 @@ const button2 = document.querySelector('#con2');
 const ageRange = document.querySelector('#input1');
 const selectGender = document.querySelector('#gender');
 const looking = document.querySelector('#looking');
+const continueButton = document.querySelector('#con2');
+const preferance = document.querySelector('.container2');
+
 let selectedGender;
 let lookingFor;
 selectGender.addEventListener('change', ()=> {
@@ -62,8 +64,23 @@ function updateRange() {
   ageOutput.textContent = `between ${ageMin.value} and ${ageMax.value}`;
 }
 
+function handlePrefernces() {
+    if (selectGender.value === 'choose') {
+        alert("Please select a gender");
+    } else if (lookingFor.value === 'choose') {
+        alert("Please select what you are looking for");
+    } else {
+        preferance.classList.add('hidden');
+        xGoBack();
+        social.classList.remove('hidden')
+        
+        
+    }
+}
+
 ageMin.addEventListener("input", updateRange);
 ageMax.addEventListener("input", updateRange);
+continueButton.addEventListener('click', handlePrefernces);
 
 updateRange();
 
@@ -78,6 +95,7 @@ const profileInfo = document.querySelector('.wrapper-more');
 const likeDislike = document.querySelector('.like-dislike');
 const x = document.querySelector('#mainDislike');
 const heart = document.querySelector('#mainLike');
+const social = document.querySelector('.social');
 
 let currentPerson;
 
