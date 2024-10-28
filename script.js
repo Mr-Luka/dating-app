@@ -59,7 +59,7 @@ function updateRange() {
     ageMax.value = minVal + 1;
   }
   
-  ageOutput.textContent = `(between ${ageMin.value} and ${ageMax.value})`;
+  ageOutput.textContent = `between ${ageMin.value} and ${ageMax.value}`;
 }
 
 ageMin.addEventListener("input", updateRange);
