@@ -11,10 +11,23 @@
     <title>Dating</title>
 </head>
 <body>
-    <p class="see-more ">See more of me: 👤</p>
-    <div class="wrapper">
+    <div class="container">
+        <h4 id="register" class="register">Register</h4>
+        <form class="form">
+            <p class="p-name">Name</p>
+            <input type="text" id="name" placeholder="enter your name">
+            <br>
+            <p class="email">Email</p>
+            <input type="email" id="email" placeholder="example@gmail.com">
+        </form>
+        <div class="div-button">
+            <button id="con1" class="continue">Continue</button>
+        </div>
     </div>
-    <div class="like-dislike">
+    <p class="see-more hidden">See more of me: 👤</p>
+    <div class="wrapper hidden">
+    </div>
+    <div class="like-dislike hidden">
             <i id="mainDislike" class="fa-solid fa-x x" style="color: #d60000;"></i>
             <i id="mainLike" class="fa-solid fa-heart heart" style="color: #63E6BE;"></i>
         </div>
@@ -22,7 +35,7 @@
     <div class="wrapper-more hidden">
 
     </div>
-    <div class="social">
+    <div class="social hidden">
         <i class="fa-brands fa-instagram"></i>
         <br>
         <i class="fa-brands fa-facebook" style="color: #0d95fd;"></i>
