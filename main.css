@@ -45,7 +45,6 @@ h4{
 }
 .choose {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -56,7 +55,7 @@ h4{
 }
 #gender,
 #looking {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     padding: 0.4rem;
     border: none;
     border-radius: 30px;
@@ -84,11 +83,72 @@ input {
     border: 1px solid rgb(105, 105, 105);
     border-radius: 10px;
     color: white;
-    width: 123%;
+    width: 80%;
 }
-#input1 {
-    width: 70%;
+
+
+.slider-container {
+  width: 30%;
 }
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#age-output {
+  display: block;
+  margin-top: 8px;
+}
+
+input[type="range"] {
+  appearance: none;
+  width: 20%;
+  background: transparent;
+  position: absolute;
+  z-index: 3;
+  border: none;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 20%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #6a0dad;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #0dad32;
+  border-radius: 50%;
+  cursor: pointer;
+  
+}
+
+.range-track {
+  position: absolute;
+  height: 8px;
+  background: #b19cd9;
+  z-index: 1;
+}
+
 #name {
     animation: fadeLeft 1000ms ease-in-out forwards;  
 }

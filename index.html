@@ -11,7 +11,7 @@
     <title>Dating</title>
 </head>
 <body>
-    <div id="container" class="container ">
+    <div id="container" class="container hidden">
         <h4 id="register" class="register">Register</h4>
         <form class="form">
             <p class="p-name">Name</p>
@@ -25,31 +25,37 @@
         </div>
     </div>
 
-        <div class="container2 hidden">
+        <div class="container2 ">
         <h2>Your prefrences are ?</h2>
         <form class="form2">
-            <label class="age-range">Age range:</label>
-            <input id="input1" type="range" min="18" max="99"></input>
+
+            <div class="slider-container">
+                <label class="age-range">Age range:</label>
+                <span id="age-output">(between 24 and 28)</span>
+                <input class="input1" id="age-min" type="range" min="18" max="98" value="24"></input>
+                <input class="input1" id="age-max" type="range" min="18" max="98" value="28"></input>
+            </div>
+
             <br>
             <div class="choose">
-            <div class="my-gender">
-            <label id="pick-gender">I am:</label>
-              <select name="gender" id="gender">
-                <option value="choose">Choose:</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="looking-gender">
-            <label id="looking-for">Looking for:</label>
-            <select name="looking" id="looking">
-                <option value="choose">Choose:</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-            </select>
-            </div>
+                <div class="my-gender">
+                    <label id="pick-gender">I am:</label>
+                    <select name="gender" id="gender">
+                    <option value="choose">Choose:</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="looking-gender">
+                    <label id="looking-for">Looking for:</label>
+                    <select name="looking" id="looking">
+                    <option value="choose">Choose:</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                    </select>
+                </div>
             </div>
         </form>
         <div class="div-button">

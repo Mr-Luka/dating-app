@@ -34,11 +34,39 @@ const button2 = document.querySelector('#con2');
 const ageRange = document.querySelector('#input1');
 const selectGender = document.querySelector('#gender');
 const looking = document.querySelector('#looking');
-
+let selectedGender;
+let lookingFor;
 selectGender.addEventListener('change', ()=> {
-    const selectedGender = selectGender.value;
-    console.log(selectedGender)
+    selectedGender = selectGender.value;
 })
+
+looking.addEventListener('change', ()=> {
+    lookingFor = looking.value;
+})
+
+const ageMin = document.getElementById("age-min");
+const ageMax = document.getElementById("age-max");
+const ageOutput = document.getElementById("age-output");
+
+function updateRange() {
+  const minVal = parseInt(ageMin.value);
+  const maxVal = parseInt(ageMax.value);
+  
+  if (minVal > maxVal - 1) {
+    ageMin.value = maxVal - 1;
+  }
+  if (maxVal < minVal + 1) {
+    ageMax.value = minVal + 1;
+  }
+  
+  ageOutput.textContent = `(between ${ageMin.value} and ${ageMax.value})`;
+}
+
+ageMin.addEventListener("input", updateRange);
+ageMax.addEventListener("input", updateRange);
+
+updateRange();
+
 
 
 
