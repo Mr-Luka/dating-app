@@ -14,7 +14,7 @@ body {
 
 .wrapper {
     z-index: 2;
-    background-color: #dddddd93;
+    background-color: #ed8258e5;
     padding: 2em;
     margin-top: 6em;
     margin-left: 1.5rem;
@@ -29,6 +29,10 @@ body {
 }
 .active {
     animation: dislike 1700ms ease-in-out forwards;
+}
+
+.like {
+    animation: like 1700ms ease-in-out forwards;
 }
 
 .hidden {
@@ -308,6 +312,21 @@ section.gallery {
     100% {
         opacity: 0;
         transform: translateX(-500px) rotateX(150deg)
+    }
+}
+
+@keyframes like {
+    0% {
+        opacity: 1;
+        transform: translateX(-50px) rotateY(-50deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(150px) rotateX(-30deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(500px) rotateX(-150deg)
     }
 }
 

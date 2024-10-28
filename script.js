@@ -5,7 +5,7 @@ const back = document.querySelector('.back')
 const profileInfo = document.querySelector('.wrapper-more');
 const likeDislike = document.querySelector('.like-dislike');
 const x = document.querySelector('#mainDislike');
-const heart = document.querySelector('.heart');
+const heart = document.querySelector('#mainLike');
 
 let currentPerson;
 
@@ -14,6 +14,7 @@ async function getPeopleApi () {
     const data = await response.json();
     currentPerson = data.results[0];
     dislikeButton(currentPerson);
+    console.log(data)
 }
 
 
@@ -21,9 +22,9 @@ async function getPeopleApi () {
 function dislikeButton (person) {
 
     if (person.gender === 'female') {
-        profile.style.backgroundColor = '#e4eca1a9 ';
+        profile.style.backgroundColor = '#ed8258e5 ';
     } else {
-        profile.style.backgroundColor = '#75afb7bd';
+        profile.style.background = '#5867ede5';
     }
 
     profile.innerHTML = `
@@ -58,7 +59,6 @@ function dislikeMore () {
     getPeopleApi();
     handleBack();
 }
-
 
 
 function handleSeeMore() {
@@ -124,9 +124,18 @@ function xGoBack(){
     getPeopleApi();
 }
 
+function handleLike (){
+    profile.classList.add('like');
+    setTimeout(() => {
+        getPeopleApi();
+        profile.classList.remove('like');
+    }, 1700);
+
+}
+
 seeMore.addEventListener('click', handleSeeMore);
 x.addEventListener('click', dislike)
 back.addEventListener('click', handleBack);
-// heart.addEventListener('click', likedButton);
+heart.addEventListener('click', handleLike);
 getPeopleApi ()
 
