@@ -59,6 +59,10 @@ function dislikeMore () {
     getPeopleApi();
     handleBack();
 }
+function likeMore(){
+    getPeopleApi();
+    handleBack();
+}
 
 
 function handleSeeMore() {
@@ -109,6 +113,7 @@ function handleSeeMore() {
     </div>
     `;
     document.querySelector('#dislike-more').addEventListener('click', dislikeMore);
+    document.querySelector('#like-more').addEventListener('click', likeMore);
 }
 
 function handleBack() {
