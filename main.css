@@ -105,6 +105,9 @@ input {
     text-align: center;
     animation: fadeUp 1000ms ease-in-out forwards;
 }
+#con2 {
+    margin-top: 3rem;
+}
 
 .continue,
 .continue2 {

@@ -1,3 +1,33 @@
+const register = document.querySelector('.container');
+const preferance = document.querySelector('.container2');
+const form = document.querySelector('.form');
+const inputName = document.querySelector('#name');
+const inputEmail = document.querySelector('#email');
+const button1 = document.querySelector('#con1');
+let namePerson;
+let email;
+function handleContinue (e){
+    e.preventDefault();
+    namePerson = inputName.value.trim();
+    email = inputEmail.value.trim();
+
+    const correctName = /^[a-z ,.'-]+$/i;
+    const correctEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!namePerson && !email) {
+        alert('Please fill in the form correctly');
+    } else if (!correctName.test(namePerson)) {
+        alert("Please enter a valid name");
+    } else if (!correctEmail.test(email)){
+        alert("Please enter a valid email");
+    } else {
+        register.classList.add('hidden');
+        preferance.classList.remove('hidden');
+    }
+}
+
+button1.addEventListener('click', handleContinue);
+
 
 const profile = document.querySelector('.wrapper');
 const seeMore = document.querySelector('.see-more');
