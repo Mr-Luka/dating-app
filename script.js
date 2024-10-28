@@ -1,3 +1,4 @@
+//    FIRST CONTAINER
 const register = document.querySelector('.container');
 const preferance = document.querySelector('.container2');
 const form = document.querySelector('.form');
@@ -25,8 +26,21 @@ function handleContinue (e){
         preferance.classList.remove('hidden');
     }
 }
-
 button1.addEventListener('click', handleContinue);
+
+
+// SECOND CONTAINER
+const button2 = document.querySelector('#con2');
+const ageRange = document.querySelector('#input1');
+const selectGender = document.querySelector('#gender');
+const looking = document.querySelector('#looking');
+
+selectGender.addEventListener('change', ()=> {
+    const selectedGender = selectGender.value;
+    console.log(selectedGender)
+})
+
+
 
 
 const profile = document.querySelector('.wrapper');
