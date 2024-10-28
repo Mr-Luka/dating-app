@@ -1,7 +1,7 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    background-image: url('./img/pexels-pixabay-2145.jpg');
+    background-image: url('./img/love-2583943_1280.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -15,26 +15,61 @@ body {
 .container,
 .container2,
 .container3 {
-    border: 1px solid rgb(105, 105, 105);
+    border: 3px solid rgb(143, 12, 12);
     border-radius: 15px;
-    background-color: #232935;
+    background-image: url('./img/art-1839006_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: #ea1919;
     padding: 5rem 15rem 3rem 2rem;
     margin-top: 15rem;
     display: flex;
     flex-direction: column;
 }
+.container2 {
+    padding-right: 5rem;
+}
+
 
 h4{
     margin: 0rem -10rem 2rem 1rem;
     font-size: 1.8rem;
     text-align: center; 
+    animation: fadeDown 1000ms ease-in-out forwards;
 }
 .form form {
-    margin: 2.2rem 7rem 0rem 1rem;
+    margin: 2.2rem 10rem 0rem 1rem;
 }
 .form2 {
     margin: 2.2rem 3.2rem 0rem 1rem;
 }
+.choose {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.my-gender,
+.age-range {
+    text-align: center;
+    font-size: 1.3rem
+}
+#gender,
+#looking {
+    margin-left: 1rem;
+    padding: 0.4rem;
+    border: none;
+    border-radius: 30px;
+    background-color: #e7e6e3;
+    font-size: 1rem;
+    font-weight: bold; 
+}
+.looking-gender{
+    margin-left: 3rem;
+    font-size: 1.3rem
+}
+
+
 .p-name p,
 .email p{
     font-size: 0.8rem;
@@ -45,25 +80,36 @@ h4{
 input {
     padding: 1rem 7rem 1rem 1rem;
     margin-bottom: 1rem;
-    background-color: #232935;
+    background-color: #541515;
     border: 1px solid rgb(105, 105, 105);
     border-radius: 10px;
     color: white;
     width: 123%;
 }
+#input1 {
+    width: 70%;
+}
+#name {
+    animation: fadeLeft 1000ms ease-in-out forwards;  
+}
+#email {
+    animation: fadeRight 1000ms ease-in-out forwards;
+}
 
 ::placeholder {
-    color: rgb(105, 105, 105);
+    color: rgb(201, 171, 171);
 }
 
 .div-button button {
     margin: 1.5rem 0rem -1rem 12rem;
     text-align: center;
+    animation: fadeUp 1000ms ease-in-out forwards;
 }
+
 .continue,
 .continue2 {
     padding: 1rem 2.5rem 1rem 2.5rem;
-    background: linear-gradient(#8564e6, #6127b7);
+    background: linear-gradient(#a7e664, #5cb727);
     color: white;
     font-family: 'Sora', sans-serif;
     font-size: 1rem;
