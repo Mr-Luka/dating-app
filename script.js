@@ -94,20 +94,17 @@ updateRange();
 
 // TEST FUNCTION
 function lookingForGender (person) {
-    if (lookingFor.value === 'male') {
-        currentPerson = person.results[0].gender.male;
-        getPeopleApi(currentPerson);
-    } else if (lookingFor.value === 'female') {
-        currentPerson = person.results[0].gender.female;
-        getPeopleApi(currentPerson);
+    if (lookingFor === 'male' && person.gender === 'male') {
+        getPeopleApi(person);
+    } else if (lookingFor === 'female' && person.gender === 'female') {
+        getPeopleApi(person);
     } else {
-        currentPerson = person.results[0];
-        getPeopleApi(currentPerson);
+        getPeopleApi(person);
     }
 }
 
 function filterUsersByAge(users, minAge, maxAge) {
-    users.filter(user=> user.results[0].dob.age >= minAge && user.results[0].dob.age <= maxAge);
+    return users.filter(user=> user.dob.age >= minAge && user.dob.age <= maxAge);
 }
 
 
