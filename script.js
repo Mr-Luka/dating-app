@@ -91,19 +91,25 @@ continueButton.addEventListener('click', handlePrefernces);
 
 updateRange();
 
-function lookingForGender () {
+
+// TEST FUNCTION
+function lookingForGender (person) {
     if (lookingFor.value === 'male') {
-        currentPerson = data.results[0].gender.male;
+        currentPerson = person.results[0].gender.male;
         getPeopleApi(currentPerson);
     } else if (lookingFor.value === 'female') {
-        currentPerson = data.results[0].gender.female;
+        currentPerson = person.results[0].gender.female;
         getPeopleApi(currentPerson);
     } else {
-        currentPerson = data.results[0];
+        currentPerson = person.results[0];
         getPeopleApi(currentPerson);
     }
 }
 
+function ageRangeBar(person) {
+    currentPerson = person.results[0].dob.age;
+    console.log(currentPerson)
+}
 
 
 
@@ -127,6 +133,7 @@ async function getPeopleApi () {
     currentPerson = data.results[0];
     dislikeButton(currentPerson);
     console.log(data)
+
 }
 
 
