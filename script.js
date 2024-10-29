@@ -106,9 +106,8 @@ function lookingForGender (person) {
     }
 }
 
-function ageRangeBar(person) {
-    currentPerson = person.results[0].dob.age;
-    console.log(currentPerson)
+function filterUsersByAge(users, minAge, maxAge) {
+    users.filter(user=> user.results[0].dob.age >= minAge && user.results[0].dob.age <= maxAge);
 }
 
 
@@ -126,6 +125,7 @@ let currentPerson;
 let lookingForMale;
 let lookingForFemale;
 let lookingForBoth;
+const userArray = [];
 
 async function getPeopleApi () {
     const response = await fetch('https://randomuser.me/api');
