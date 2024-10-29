@@ -133,6 +133,26 @@ async function getPeopleApi () {
 
 }
 
+function renderUserProfile (person, container) {
+    container.innerHTML = `
+    <div class="image">
+            <img src="${person.picture.large}"/>
+    </div>
+    <div class="title">
+            <h1>${person.name.first} - ${person.dob.age}</h1>
+    </div>
+    <div class="location cursor typewriter-animation">
+        <p>Location: ${person.location.city}</p>
+    </div>
+    <div class="description">
+        <p>Lover of sunsets, dog walks and spontaneous adventures. Let's create our own love story.
+            Looking for someone to share lazy Sunday mornings and late-night conversations with.
+            Searching for my partner-in-crime to explore the city, try new foods and cuddle up with on rainy days.
+        </p>
+    </div>
+    `
+}
+
 
 
 function dislikeButton (person) {
