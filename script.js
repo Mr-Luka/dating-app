@@ -1,3 +1,9 @@
+/*
+Next thing I need to do is:
+1) connect swiping if I am male and chose male,
+2) when its a match to show match
+*/
+
 //    FIRST CONTAINER
 const register = document.querySelector('.container');
 const form = document.querySelector('.form');
