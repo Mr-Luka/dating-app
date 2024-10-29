@@ -1,7 +1,9 @@
 /*
 Next thing I need to do is:
 1) connect swiping if I am male and chose male,
-2) when its a match to show match
+2) age range
+3) when its a match to show match
+
 */
 
 //    FIRST CONTAINER
@@ -50,6 +52,7 @@ selectGender.addEventListener('change', ()=> {
 
 looking.addEventListener('change', ()=> {
     lookingFor = looking.value;
+    console.log(lookingFor)
 })
 
 const ageMin = document.getElementById("age-min");
@@ -79,8 +82,6 @@ function handlePrefernces() {
         preferance.classList.add('hidden');
         xGoBack();
         social.classList.remove('hidden')
-        
-        
     }
 }
 
@@ -90,6 +91,18 @@ continueButton.addEventListener('click', handlePrefernces);
 
 updateRange();
 
+function lookingForGender () {
+    if (lookingFor.value === 'male') {
+        currentPerson = data.results[0].gender.male;
+        getPeopleApi(currentPerson);
+    } else if (lookingFor.value === 'female') {
+        currentPerson = data.results[0].gender.female;
+        getPeopleApi(currentPerson);
+    } else {
+        currentPerson = data.results[0];
+        getPeopleApi(currentPerson);
+    }
+}
 
 
 
@@ -104,6 +117,9 @@ const heart = document.querySelector('#mainLike');
 const social = document.querySelector('.social');
 
 let currentPerson;
+let lookingForMale;
+let lookingForFemale;
+let lookingForBoth;
 
 async function getPeopleApi () {
     const response = await fetch('https://randomuser.me/api');
