@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+    font-family: "Playpen Sans", serif;
     margin: 0;
     background-image: url('./img/love-2583943_1280.jpg');
     background-size: cover;
@@ -18,7 +18,7 @@ body {
     left: 0.2rem;
     font-size: 1.5rem;
     color:rgb(245, 244, 250);
-    font-weight: 800;
+    font-family: sans-serif
 }
 
 .container,
@@ -214,7 +214,10 @@ button:hover {
     outline-offset: 0;
     outline-color: rgba(0, 130, 206, 0.75);
     outline-style: solid;
-    animation: animateOutline 4s ease infinite;
+    animation: animateOutline 3s ease infinite;
+}
+#bio {
+    font-family: sans-serif;
 }
 .active {
     animation: dislike 1700ms ease-in-out forwards;
@@ -318,7 +321,7 @@ section.gallery {
     margin-right: 5.5rem;
     top: 3rem;
     font-weight: 800;
-    color:rgb(0, 0, 0);
+    color:rgb(253, 253, 253);
     position: absolute;
     z-index: 3;
     font-size: 1.2rem;

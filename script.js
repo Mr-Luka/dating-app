@@ -5,6 +5,7 @@ const form = document.querySelector('.form');
 const inputName = document.querySelector('#name');
 const inputEmail = document.querySelector('#email');
 const button1 = document.querySelector('#con1');
+const notice = document.querySelector('#notice')
 let namePerson;
 let email;
 function handleContinue (e){
@@ -25,6 +26,7 @@ function handleContinue (e){
         register.classList.add('hidden');
         preferance.classList.remove('hidden');
     }
+    notice.classList.add('hidden')
 }
 button1.addEventListener('click', handleContinue);
 
@@ -168,7 +170,7 @@ function renderUserProfile (person, container) {
         <p>Location: ${person.location.city}</p>
     </div>
     <div class="description">
-        <p>Lover of sunsets, dog walks and spontaneous adventures. Let's create our own love story.
+        <p id="bio">Lover of sunsets, dog walks and spontaneous adventures. Let's create our own love story.
             Looking for someone to share lazy Sunday mornings and late-night conversations with.
             Searching for my partner-in-crime to explore the city, try new foods and cuddle up with on rainy days.
         </p>
@@ -299,6 +301,8 @@ function handleLike() {
         profile.classList.remove('like');
     }, 1700);
 }
+
+
 
 seeMore.addEventListener('click', handleSeeMore);
 x.addEventListener('click', dislike)
