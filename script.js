@@ -1,10 +1,3 @@
-/*
-Next thing I need to do is:
-1) connect swiping if I am male and chose male,
-2) age range
-3) when its a match to show match
-
-*/
 
 //    FIRST CONTAINER
 const register = document.querySelector('.container');
@@ -118,19 +111,22 @@ const x = document.querySelector('#mainDislike');
 const heart = document.querySelector('#mainLike');
 const social = document.querySelector('.social');
 
-let currentPerson;
-let lookingForMale;
-let lookingForFemale;
-let lookingForBoth;
+
 const userArray = [];
 
 async function getPeopleApi () {
-    const response = await fetch('https://randomuser.me/api');
-    const data = await response.json();
-    currentPerson = data.results[0];
-    dislikeButton(currentPerson);
-    console.log(data)
-
+    if (userArray === 0) {
+        const response = await fetch('https://randomuser.me/api');
+        const data = await response.json();
+        userArray.push(...data.results)
+    }
+    const filteredUsers = filterUsersByAge(userArray, parseInt(ageMin.value), parseInt(ageMax.value));
+    const matchingUser = filteredUsers.find(user => lookingForGender(user));
+    if(matchingUser) {
+        renderUserProfile(matchingUser, profile)
+    } else {
+        console.warn('No matching user found based on')
+    }
 }
 
 function renderUserProfile (person, container) {
