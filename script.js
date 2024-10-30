@@ -87,13 +87,9 @@ updateRange();
 
 // TEST FUNCTION
 function lookingForGender (person) {
-    if (lookingFor === 'male' && person.gender === 'male') {
-        getPeopleApi(person);
-    } else if (lookingFor === 'female' && person.gender === 'female') {
-        getPeopleApi(person);
-    } else {
-        getPeopleApi(person);
-    }
+    return  (lookingFor === 'male' && person.gender === 'male') ||
+            (lookingFor === 'female' && person.gender === 'female') ||
+            (lookingFor === 'both');
 }
 
 function filterUsersByAge(users, minAge, maxAge) {
