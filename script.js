@@ -85,7 +85,7 @@ continueButton.addEventListener('click', handlePrefernces);
 updateRange();
 
 
-// TEST FUNCTION
+
 function lookingForGender (person) {
     return  (lookingFor === 'male' && person.gender === 'male') ||
             (lookingFor === 'female' && person.gender === 'female') ||
@@ -107,25 +107,45 @@ const x = document.querySelector('#mainDislike');
 const heart = document.querySelector('#mainLike');
 const social = document.querySelector('.social');
 
-
+let currentPerson;
+let currentIndex = 0;
+let filteredUsers = [];
 const userArray = [];
 
 async function getPeopleApi () {
-    if (userArray === 0) {
-        const response = await fetch('https://randomuser.me/api');
-        const data = await response.json();
-        userArray.push(...data.results)
+    if (userArray.length === 0) { // Check if the array is empty, not if it is equal to 0
+        try {
+            const response = await fetch('https://randomuser.me/api/?results=10');
+            const data = await response.json();
+            userArray.push(...data.results);
+        } catch (error) {
+            console.error('Failed to fetch users:', error);
+            return;
+        }
     }
-    const filteredUsers = filterUsersByAge(userArray, parseInt(ageMin.value), parseInt(ageMax.value));
-    const matchingUser = filteredUsers.find(user => lookingForGender(user));
-    if(matchingUser) {
-        renderUserProfile(matchingUser, profile)
+    
+    const minAge = parseInt(ageMin.value);
+    const maxAge = parseInt(ageMax.value);
+    filteredUsers = filterUsersByAge(userArray, minAge, maxAge).filter(user => lookingForGender(user));
+    
+    if(currentIndex >= filteredUsers.length){
+        currentIndex = 0;
+    }
+
+    if (filteredUsers.length > 0) {
+        renderUserProfile(filteredUsers[currentIndex], profile);
     } else {
-        console.warn('No matching user found based on')
+        profile.innerHTML = `<p>No matching user found based on your preferences.</p>`;
     }
 }
 
 function renderUserProfile (person, container) {
+    currentPerson = person;
+    if(!person || !person.picture) {
+        console.error('User data is incomplete or indefined.');
+        container.innerHTML = `<p>User profile could not be loaded.</p>`;
+        return;
+    } 
     container.innerHTML = `
     <div class="image">
             <img src="${person.picture.large}"/>
@@ -177,9 +197,10 @@ function dislikeButton (person) {
 function dislike (){
     profile.classList.add('active');
     setTimeout(() => {
+        currentIndex = (currentIndex + 1) % filteredUsers.length;
         getPeopleApi();
         profile.classList.remove('active');
-        handleBack();
+        // handleBack();
     }, 1700);
 }
 
@@ -260,6 +281,7 @@ function xGoBack(){
 function handleLike (){
     profile.classList.add('like');
     setTimeout(() => {
+        currentIndex = (currentIndex + 1) % filteredUsers.length;
         getPeopleApi();
         profile.classList.remove('like');
     }, 1700);
@@ -271,4 +293,6 @@ x.addEventListener('click', dislike)
 back.addEventListener('click', handleBack);
 heart.addEventListener('click', handleLike);
 getPeopleApi ()
+
+
 
