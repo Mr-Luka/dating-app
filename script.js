@@ -86,10 +86,15 @@ updateRange();
 
 
 
-function lookingForGender (person) {
-    return  (lookingFor === 'male' && person.gender === 'male') ||
-            (lookingFor === 'female' && person.gender === 'female') ||
-            (lookingFor === 'both');
+function lookingForGender(person) {
+    if (lookingFor === 'male') {
+        return person.gender === 'male';
+    } else if (lookingFor === 'female') {
+        return person.gender === 'female';
+    } else if (lookingFor === 'both') {
+        return person.gender === 'male' || person.gender === 'female';
+    }
+    return false;
 }
 
 function filterUsersByAge(users, minAge, maxAge) {
@@ -112,8 +117,8 @@ let currentIndex = 0;
 let filteredUsers = [];
 const userArray = [];
 
-async function getPeopleApi () {
-    if (userArray.length === 0) { // Check if the array is empty, not if it is equal to 0
+async function getPeopleApi() {
+    if (userArray.length === 0) {
         try {
             const response = await fetch('https://randomuser.me/api/?results=10');
             const data = await response.json();
@@ -126,17 +131,23 @@ async function getPeopleApi () {
     
     const minAge = parseInt(ageMin.value);
     const maxAge = parseInt(ageMax.value);
-    filteredUsers = filterUsersByAge(userArray, minAge, maxAge).filter(user => lookingForGender(user));
-    
-    if(currentIndex >= filteredUsers.length){
-        currentIndex = 0;
-    }
 
-    if (filteredUsers.length > 0) {
-        renderUserProfile(filteredUsers[currentIndex], profile);
-    } else {
+    // Filter users by age and gender preference
+    filteredUsers = filterUsersByAge(userArray, minAge, maxAge).filter(user => lookingForGender(user));
+
+    // Debugging: Log the filtered users to check results
+    console.log("Filtered Users:", filteredUsers);
+
+    if (filteredUsers.length === 0) {
         profile.innerHTML = `<p>No matching user found based on your preferences.</p>`;
+        return;
     }
+    
+    // Reset currentIndex if it exceeds the length of filteredUsers
+    currentIndex = currentIndex % filteredUsers.length;
+
+    // Render the first profile or next profile based on currentIndex
+    renderUserProfile(filteredUsers[currentIndex], profile);
 }
 
 function renderUserProfile (person, container) {
@@ -194,15 +205,6 @@ function dislikeButton (person) {
         `;
 }
 
-function dislike (){
-    profile.classList.add('active');
-    setTimeout(() => {
-        currentIndex = (currentIndex + 1) % filteredUsers.length;
-        getPeopleApi();
-        profile.classList.remove('active');
-        // handleBack();
-    }, 1700);
-}
 
 function dislikeMore () {
     getPeopleApi();
@@ -216,49 +218,49 @@ function likeMore(){
 
 function handleSeeMore() {
     if (!currentPerson) return;
-
+    
     profile.classList.add('hidden');
     seeMore.classList.add('hidden');
     likeDislike.classList.add('hidden');
     profileInfo.classList.remove('hidden');
     back.classList.remove('hidden');
-
+    
     if (currentPerson.gender === 'female') {
         profileInfo.style.backgroundColor = '#da67f193';
     } else {
         profileInfo.style.backgroundColor = '#cce3fe93';
     }
-
+    
     profileInfo.innerHTML = `
     <section class="gallery">
-        <div class="images stagger" data-delay="0.5s">
-            <img  class="fade-right" src="${currentPerson.picture.large}"/>
-            <img  class="fade-up" src="${currentPerson.picture.large}"/>
-            <img  class="fade-down"  src="${currentPerson.picture.large}"/>
-            <img  class="fade-left" src="${currentPerson.picture.large}"/>
-        </div>
+    <div class="images stagger" data-delay="0.5s">
+    <img  class="fade-right" src="${currentPerson.picture.large}"/>
+    <img  class="fade-up" src="${currentPerson.picture.large}"/>
+    <img  class="fade-down"  src="${currentPerson.picture.large}"/>
+    <img  class="fade-left" src="${currentPerson.picture.large}"/>
+    </div>
     </section>
-        
-        <div class="title-more title-info">
-            <h1>${currentPerson.name.first} - ${currentPerson.dob.age} years old</h1>
-        </div>
-        <div class="location-more cursor typewriter-animation">
-            <p>Location: ${currentPerson.location.city} ${currentPerson.location.country}</p>
-        </div>
-        <div class="description-more">
-            <p>Lover of sunsets, dog walks and spontaneous adventures. Let's create our own love story.
-                Looking for someone to share lazy Sunday mornings and late-night conversations with.
-                Searching for my partner-in-crime to explore the city, try new foods and cuddle up with on rainy days.
-                Lover of sunsets, dog walks and spontaneous adventures. Let's create our own love story.
-                Looking for someone to share lazy Sunday mornings and late-night conversations with.
-                Searching for my partner-in-crime to explore the city, try new foods and cuddle up with on rainy days.
-                Lover of sunsets, dog walks and spontaneous adventures. Let's create our own love story.
-            </p>
-        <div class="like-dislike-more">
-            <i id="dislike-more" class="fa-solid fa-x x x-info" style="color: #d60000;"></i>
-            <i id="like-more" class="fa-solid fa-heart heart" style="color: #63E6BE;"></i>
-        </div>
-        </div>
+    
+    <div class="title-more title-info">
+    <h1>${currentPerson.name.first} - ${currentPerson.dob.age} years old</h1>
+    </div>
+    <div class="location-more cursor typewriter-animation">
+    <p>Location: ${currentPerson.location.city} ${currentPerson.location.country}</p>
+    </div>
+    <div class="description-more">
+    <p>Lover of sunsets, dog walks and spontaneous adventures. Let's create our own love story.
+    Looking for someone to share lazy Sunday mornings and late-night conversations with.
+    Searching for my partner-in-crime to explore the city, try new foods and cuddle up with on rainy days.
+    Lover of sunsets, dog walks and spontaneous adventures. Let's create our own love story.
+    Looking for someone to share lazy Sunday mornings and late-night conversations with.
+    Searching for my partner-in-crime to explore the city, try new foods and cuddle up with on rainy days.
+    Lover of sunsets, dog walks and spontaneous adventures. Let's create our own love story.
+    </p>
+    <div class="like-dislike-more">
+    <i id="dislike-more" class="fa-solid fa-x x x-info" style="color: #d60000;"></i>
+    <i id="like-more" class="fa-solid fa-heart heart" style="color: #63E6BE;"></i>
+    </div>
+    </div>
     </div>
     `;
     document.querySelector('#dislike-more').addEventListener('click', dislikeMore);
@@ -278,21 +280,28 @@ function xGoBack(){
     getPeopleApi();
 }
 
-function handleLike (){
+function dislike() {
+    profile.classList.add('active');
+    setTimeout(() => {
+        // Move to the next profile in filteredUsers
+        currentIndex = (currentIndex + 1) % filteredUsers.length;
+        getPeopleApi();
+        profile.classList.remove('active');
+    }, 1700);
+}
+
+function handleLike() {
     profile.classList.add('like');
     setTimeout(() => {
+        // Move to the next profile in filteredUsers
         currentIndex = (currentIndex + 1) % filteredUsers.length;
         getPeopleApi();
         profile.classList.remove('like');
     }, 1700);
-
 }
 
 seeMore.addEventListener('click', handleSeeMore);
 x.addEventListener('click', dislike)
 back.addEventListener('click', handleBack);
 heart.addEventListener('click', handleLike);
-getPeopleApi ()
-
-
-
+getPeopleApi ();
